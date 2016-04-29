@@ -1,0 +1,2 @@
+# ignore folder node_modules for gulp
+node_modules/

@@ -1,0 +1,18 @@
+/* END Extra small devices (phones, 320px) and 768px */
+/* END Extra small devices (phones, 320px) and 768px */
+/* Small devices (tablets, 768px and 992px) */
+@media only screen and (min-width: 767px) and (max-width: 992px) {
+  a.nav-toggle {
+    display: block !important;
+  }
+  /* navigation */
+  nav.top-nav {
+    display: none;
+  }
+  /* END navigation */
+}
+/* END Small devices (tablets, 768px and 992px) */
+/* Medium devices (desktops, 992px and 1200px) */
+/* END Medium devices (desktops, 992px and 1200px) */
+/* Large devices (large desktops, 1200px and up) */
+/* END Large devices (large desktops, 1200px and up) */
