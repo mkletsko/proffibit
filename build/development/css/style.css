@@ -50,7 +50,7 @@ html body h6 {
 html body .return-up {
   display: block;
   position: fixed;
-  bottom: 16px;
+  bottom: 300px;
   width: 54px;
   height: 54px;
   background-color: rgba(0, 0, 0, 0.3);
@@ -61,7 +61,7 @@ html body .return-up {
   border-radius: 50%;
   z-index: 100;
   outline: none!important;
-  transition: 3s linear;
+  transition: 0.5s linear;
   color: #fff!important;
   cursor: pointer;
 }
@@ -187,7 +187,7 @@ html body header .header-content .social-list .social li a i:hover {
 }
 html body .nav-toggle {
   display: none;
-  position: absolute;
+  position: fixed;
   z-index: 1000;
   top: 45px;
   right: 20px;
@@ -269,7 +269,6 @@ html body .top-nav .navigation-content .navigation li:last-child {
 html body .fixed {
   position: fixed;
   top: 0;
-  left: 0;
   background-color: #7049ba;
   height: 60px;
   opacity: 1;

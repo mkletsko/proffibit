@@ -1,24 +1,40 @@
-/* Javascript Part */
+/*-- Javascript Part --*/
 
 /* Navigation script */
 
 /* variables for navigation */
 var menuElem = document.getElementsByClassName('top-nav')[0];
+var toogleButtom = document.getElementsByClassName('nav-toggle')[0];
 var menuSourceBottom = menuElem.getBoundingClientRect().bottom + window.pageYOffset;
 
 window.onscroll = function() {
+
+    var computedStyleToggleBottom = getComputedStyle(toogleButtom);
+    var coordToogleButtom = toogleButtom.getBoundingClientRect().bottom;
+
     if (menuElem.classList.contains('fixed') && window.pageYOffset < menuSourceBottom) {
         menuElem.classList.remove('fixed');
     } else if (window.pageYOffset > menuSourceBottom) {
         menuElem.classList.add('fixed');
     }
+
+    if ((window.pageYOffset > 20) && (document.documentElement.clientWidth < 992)) {
+        toogleButtom.style.top = 5 + 'px';
+    } else {
+        toogleButtom.style.top = '';
+    }
 };
 /* END Navigation script */
+
+
 
 /* toggle-menu display */
 var toogleButtom = document.getElementsByClassName('nav-toggle')[0];
 
 toogleButtom.onclick = function(event){
+
+    var coordToogleButtom = toogleButtom.getBoundingClientRect().bottom;
+
     menuElem.classList.add('nav-toggle-down');
     if(menuElem.style.display == 'block'){
         menuElem.style.display = 'none';
@@ -26,7 +42,10 @@ toogleButtom.onclick = function(event){
         menuElem.style.display = 'block';
     }
 
-
+    if ((window.pageYOffset > 20) && (document.documentElement.clientWidth < 992)) {
+        //menuElem.classList.remove('fixed');
+        menuElem.style.top = coordToogleButtom + 10 + 'px';
+    }
 
 };
 

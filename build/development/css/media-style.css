@@ -7,12 +7,24 @@
   }
   /* navigation */
   nav.top-nav {
+    position: fixed;
     display: none;
+    width: 200px !important;
+    right: 10px !important;
+  }
+  nav.top-nav div.navigation-content .navigation li {
+    display: block;
+    float: left;
   }
   /* END navigation */
 }
 /* END Small devices (tablets, 768px and 992px) */
 /* Medium devices (desktops, 992px and 1200px) */
+@media only screen and (min-width: 992px) and (max-width: 1320px) {
+  nav.top-nav {
+    display: block !important;
+  }
+}
 /* END Medium devices (desktops, 992px and 1200px) */
 /* Large devices (large desktops, 1200px and up) */
 /* END Large devices (large desktops, 1200px and up) */

@@ -22,10 +22,18 @@ and (max-width : @screen-md-min) {
 
   /* navigation */
   nav.top-nav {
+    position: fixed;
     display: none;
+    width: 200px !important;
+    right: 10px !important;
 
     div.navigation-content{
-
+      .navigation {
+        li {
+          display: block;
+          float: left;
+        }
+      }
     }
 
   }/* END navigation */
@@ -38,7 +46,9 @@ and (max-width : @screen-md-min) {
 @media only screen
 and (min-width : @screen-md-min)
 and (max-width : @screen-lg-min) {
-
+  nav.top-nav {
+    display: block !important;
+  }
 }/* END Medium devices (desktops, 992px and 1200px) */
 
 
