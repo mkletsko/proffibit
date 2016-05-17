@@ -102,6 +102,22 @@
 }
 /* END Small devices (tablets, 768px and 992px) */
 /* Medium devices (desktops, 992px and 1200px) */
+@media only screen and (min-width: 992px) and (max-width: 1320px) {
+  body {
+    /* navigation */
+  }
+  body nav.top-nav {
+    display: block !important;
+  }
+}
 /* END Medium devices (desktops, 992px and 1200px) */
 /* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1320px) {
+  body {
+    /* navigation */
+  }
+  body nav.top-nav {
+    display: block !important;
+  }
+}
 /* END Large devices (large desktops, 1200px and up) */
