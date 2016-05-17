@@ -9,14 +9,14 @@ var gulp = require('gulp'),
     watch = require('gulp-watch'),
     jade = require('gulp-jade');
 
-//html
+//html-watch
 gulp.task('html', function(){
     return gulp.src('build/development/index.html')
         .pipe(watch('build/development/index.html'))
         .pipe(connect.reload());
 });
 
-//less
+//less-watch
 gulp.task('less', function () {
     return gulp.src('src/less/*.less')
         .pipe(watch('src/less/*.less'))
@@ -25,10 +25,17 @@ gulp.task('less', function () {
         .pipe(notify('Done!'));
 });
 
-//css
+//css-watch
 gulp.task('css', function () {
     return gulp.src('build/development/css/*.css')
         .pipe(watch('build/development/css/*.css'))
+        .pipe(connect.reload());
+});
+
+//js-watch
+gulp.task('js', function () {
+    return gulp.src('build/development/js/*.js')
+        .pipe(watch('build/development/js/*.js'))
         .pipe(connect.reload());
 });
 
@@ -41,4 +48,4 @@ gulp.task('connect', function() {
 });
 
 //gulp-default
-gulp.task('default', ['html', 'connect', 'less', 'css']);
+gulp.task('default', ['html', 'connect', 'less', 'css','js']);

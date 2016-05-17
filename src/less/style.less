@@ -29,9 +29,9 @@ html {
     .return-up {
       display: block;
       position: fixed;
-      bottom: 300px;
       width: 54px;
       height: 54px;
+      margin-bottom: 10px;
       background-color: rgba(0,0,0,0.3);
       right: 15px;
       text-align: center;
@@ -40,9 +40,8 @@ html {
       border-radius: 50%;
       z-index: 100;
       outline: none!important;
-      //transition: background-color 0.3s, box-shadow 0.3s, bottom 0.3s;
       transition: 0.5s linear;
-      color: #fff!important;
+      color: #fff !important;
       cursor: pointer;
 
       .chevron::before {
@@ -65,7 +64,7 @@ html {
    /* END fixed for navigation */
 
     /* header */
-    header {
+    .header-main {
       width: 100%;
       background-color: #9ea2a2;
       position: absolute;
@@ -131,7 +130,7 @@ html {
               float: left;
               margin-right: 5px;
               margin-left: 0;
-              margin-top: 0px;
+              margin-top: 0;
             }
             span {
               float: left;
@@ -153,7 +152,6 @@ html {
               list-style-type: none;
               float: left;
               margin-left: 20px;
-
               a {
                 i {
                   color: #efecec;
@@ -168,7 +166,6 @@ html {
           }/* END social */
         }/* END social-list */
 
-
       } /* END header-content */
 
     }/* END header */
@@ -177,8 +174,8 @@ html {
     .nav-toggle {
       display: none;
       position: fixed;
-      z-index: 1000;
-      top: 45px;
+      z-index: 10;
+      top: 25px;
       right: 20px;
       width: 18px;
       height: 30px;
@@ -187,6 +184,11 @@ html {
       font-size: 21px;
       cursor: pointer;
       transition: color 0.3s;
+    }
+    .nav-toggle-fixed {
+      top: 0;
+      transition-property: top;
+      transition-duration: 0.3s;
     }
 
     .nav-toggle span:after,
@@ -214,26 +216,17 @@ html {
       backface-visibility: hidden;
       border-radius: 2px;
     }
-
-    .nav-toggle-down{
-      background-color: #6039a8;
-      ul {
-        li {
-          display: block;
-          float: right;
-        }
-      }
-    }
     /* END nav-toggle menu styles */
 
     /* navigation */
     .top-nav {
+      display: block;
       height: 35px;
       width: 100%;
       position: absolute;
       top: 35px;
-      z-index: 5;
-      opacity: 0.8;
+      z-index: 15;
+      opacity: 1;
 
       .navigation-content {
         width: 100%;
@@ -254,6 +247,7 @@ html {
             float: left;
             margin-left: 40px;
             a {
+              margin-top: 10px;
               text-transform: uppercase;
               text-decoration: none;
               color: white;
@@ -264,6 +258,31 @@ html {
           }
         }
       }
+
+      /* close-nav */
+      .close-nav{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        text-align: center;
+        color: #fff;
+        background-color: #2574A9;
+        height: 40px;
+        width: 40px;
+        border: 0;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .close-nav:before{
+        font-family: Arial;
+        color: rgba(255, 255, 255, 0.9);
+        content: "x";
+        font-size: 30px;
+        text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+        outline: none;
+      }/* END close-nav */
 
     }/* END navigation */
 

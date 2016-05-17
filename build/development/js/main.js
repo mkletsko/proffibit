@@ -4,57 +4,113 @@
 
 /* variables for navigation */
 var menuElem = document.getElementsByClassName('top-nav')[0];
-var toogleButtom = document.getElementsByClassName('nav-toggle')[0];
+var toggleButton = document.getElementsByClassName('nav-toggle')[0];
 var menuSourceBottom = menuElem.getBoundingClientRect().bottom + window.pageYOffset;
 
-window.onscroll = function() {
+/* event scroll effects menu and toggle menu button*/
+window.onscroll = function(e) {
 
-    var computedStyleToggleBottom = getComputedStyle(toogleButtom);
-    var coordToogleButtom = toogleButtom.getBoundingClientRect().bottom;
+    fixedTopMenu();
+    fixedTopToggleButton();
 
-    if (menuElem.classList.contains('fixed') && window.pageYOffset < menuSourceBottom) {
-        menuElem.classList.remove('fixed');
-    } else if (window.pageYOffset > menuSourceBottom) {
-        menuElem.classList.add('fixed');
-    }
+    function fixedTopMenu(){
+        if (menuElem.classList.contains('fixed') && window.pageYOffset < menuSourceBottom && document.documentElement.clientWidth < 992) {
+            menuElem.classList.remove('fixed');
+        } else if (window.pageYOffset > menuSourceBottom && document.documentElement.clientWidth > 992) {
+            menuElem.classList.add('fixed');
+        } else {
+            menuElem.classList.remove('fixed');
+        }
+    };
 
-    if ((window.pageYOffset > 20) && (document.documentElement.clientWidth < 992)) {
-        toogleButtom.style.top = 5 + 'px';
-    } else {
-        toogleButtom.style.top = '';
-    }
+    function fixedTopToggleButton(){
+        if (window.pageYOffset > 25) {
+            toggleButton.classList.add('nav-toggle-fixed');
+        } else{
+            toggleButton.classList.remove('nav-toggle-fixed');
+        }
+    };
+
+
 };
+/* END event scroll effects menu and toggle menu button*/
 /* END Navigation script */
 
 
+/* click toggle-menu display */
+if (document.addEventListener){
+    toggleButton.addEventListener('click', toggleClick);
+} else if (document.attachEvent){
+    toggleButton.attachEvent('onclick', toggleClick);
+} else {
+    toggleButton.onclick = toggleClick;
+};
 
-/* toggle-menu display */
-var toogleButtom = document.getElementsByClassName('nav-toggle')[0];
+function toggleClick(e){
 
-toogleButtom.onclick = function(event){
-
-    var coordToogleButtom = toogleButtom.getBoundingClientRect().bottom;
-
-    menuElem.classList.add('nav-toggle-down');
     if(menuElem.style.display == 'block'){
         menuElem.style.display = 'none';
     } else {
         menuElem.style.display = 'block';
     }
 
-    if ((window.pageYOffset > 20) && (document.documentElement.clientWidth < 992)) {
-        //menuElem.classList.remove('fixed');
-        menuElem.style.top = coordToogleButtom + 10 + 'px';
+    if(typeof e.stopPropagation === 'function'){
+        e.stopPropagation();
+    }
+    if(typeof  e.cancelBubble !== 'undefined'){
+        e.cancelBubble = true;
+    }
+
+    if(typeof e.preventDefault === 'function'){
+        e.preventDefault();
+    }
+    if(typeof  e.returnValue !== 'undefined') {
+        e.returnValue = false;
     }
 
 };
+/* END click toggle-menu display */
+
+/* close toggle-menu button */
+var closeNav = document.getElementsByClassName('close-nav')[0];
+
+if (document.addEventListener){
+    closeNav.addEventListener('click', closeNavigation);
+} else if (document.attachEvent){
+    closeNav.attachEvent('onclick', closeNavigation);
+} else {
+    closeNav.onclick = closeNavigation;
+};
+
+function closeNavigation(e){
+
+    if(menuElem.style.display == 'block'){
+        menuElem.style.display = 'none';
+    } else {
+        menuElem.style.display = 'block';
+    }
+
+    if(typeof e.stopPropagation === 'function'){
+        e.stopPropagation();
+    }
+    if(typeof  e.cancelBubble !== 'undefined'){
+        e.cancelBubble = true;
+    }
+
+    if(typeof e.preventDefault === 'function'){
+        e.preventDefault();
+    }
+    if(typeof  e.returnValue !== 'undefined') {
+        e.returnValue = false;
+    }
+
+};
+/* END close toggle-menu button */
 
 
 
 
-
-
-/* JQuery Part */
+/*-- JQuery Part --*/
 $(document).ready(function(e) {
 
     /* variables for slider */

@@ -1,30 +1,107 @@
 /* END Extra small devices (phones, 320px) and 768px */
+@media (max-width: 767px) {
+  body {
+    /* navigation */
+    /* END navigation */
+  }
+  body header.header-main .header-content .header-email a {
+    font-size: 12px;
+  }
+  body header.header-main .header-content .header-number a {
+    font-size: 12px;
+  }
+  body header.header-main .header-content .social-list {
+    float: left;
+  }
+  body a.nav-toggle {
+    display: block !important;
+  }
+  body nav.top-nav {
+    position: fixed;
+    background-color: #7049ba;
+    display: none;
+    width: 100%;
+    top: 0;
+  }
+  body nav.top-nav .navigation-content {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+  body nav.top-nav .navigation-content .navigation {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    float: left;
+  }
+  body nav.top-nav .navigation-content .navigation li {
+    width: 100%;
+    margin: 0;
+  }
+  body nav.top-nav .navigation-content .navigation li a {
+    padding: 12px;
+    background-color: #7049ba;
+    float: left;
+    width: 100%;
+    margin: 0;
+  }
+  body nav.top-nav .navigation-content .navigation li a:hover {
+    background-color: #7e57c2;
+  }
+  body nav.top-nav .close-nav {
+    display: block;
+  }
+}
 /* END Extra small devices (phones, 320px) and 768px */
 /* Small devices (tablets, 768px and 992px) */
 @media only screen and (min-width: 767px) and (max-width: 992px) {
-  a.nav-toggle {
+  body {
+    /* navigation */
+    /* END navigation */
+  }
+  body a.nav-toggle {
     display: block !important;
   }
-  /* navigation */
-  nav.top-nav {
+  body nav.top-nav {
     position: fixed;
+    background-color: #7049ba;
     display: none;
-    width: 200px !important;
-    right: 10px !important;
+    width: 100%;
+    top: 0;
   }
-  nav.top-nav div.navigation-content .navigation li {
-    display: block;
+  body nav.top-nav .navigation-content {
+    margin: 0;
+    width: 100%;
+    padding: 0;
+  }
+  body nav.top-nav .navigation-content .navigation {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
     float: left;
   }
-  /* END navigation */
+  body nav.top-nav .navigation-content .navigation li {
+    width: 100%;
+    margin: 0;
+  }
+  body nav.top-nav .navigation-content .navigation li a {
+    padding: 12px;
+    background-color: #7049ba;
+    float: left;
+    width: 100%;
+    margin: 0;
+  }
+  body nav.top-nav .navigation-content .navigation li a:hover {
+    background-color: #7e57c2;
+  }
+  body nav.top-nav .close-nav {
+    display: block;
+  }
 }
 /* END Small devices (tablets, 768px and 992px) */
 /* Medium devices (desktops, 992px and 1200px) */
-@media only screen and (min-width: 992px) and (max-width: 1320px) {
-  nav.top-nav {
-    display: block !important;
-  }
-}
 /* END Medium devices (desktops, 992px and 1200px) */
 /* Large devices (large desktops, 1200px and up) */
 /* END Large devices (large desktops, 1200px and up) */

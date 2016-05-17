@@ -50,9 +50,9 @@ html body h6 {
 html body .return-up {
   display: block;
   position: fixed;
-  bottom: 300px;
   width: 54px;
   height: 54px;
+  margin-bottom: 10px;
   background-color: rgba(0, 0, 0, 0.3);
   right: 15px;
   text-align: center;
@@ -62,7 +62,7 @@ html body .return-up {
   z-index: 100;
   outline: none!important;
   transition: 0.5s linear;
-  color: #fff!important;
+  color: #fff !important;
   cursor: pointer;
 }
 html body .return-up .chevron::before {
@@ -80,7 +80,7 @@ html body .return-up:hover {
   background-color: #88cc00;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 30px rgba(0, 0, 0, 0.15);
 }
-html body header {
+html body .header-main {
   width: 100%;
   background-color: #9ea2a2;
   position: absolute;
@@ -89,7 +89,7 @@ html body header {
   opacity: 0.8;
   /* END header-content */
 }
-html body header .header-content {
+html body .header-main .header-content {
   width: 95%;
   max-width: 1200px;
   height: 35px;
@@ -108,7 +108,7 @@ html body header .header-content {
   /* social-list */
   /* END social-list */
 }
-html body header .header-content .header-email {
+html body .header-main .header-content .header-email {
   float: left;
   min-width: 20.09803921%;
   /*205px*/
@@ -116,7 +116,7 @@ html body header .header-content .header-email {
   height: 100%;
   box-sizing: content-box;
 }
-html body header .header-content .header-email a {
+html body .header-main .header-content .header-email a {
   float: left;
   margin-top: 12px;
   margin-left: 25px;
@@ -127,69 +127,69 @@ html body header .header-content .header-email a {
   color: #efecec;
   text-decoration: none;
 }
-html body header .header-content .header-email a img {
+html body .header-main .header-content .header-email a img {
   margin-right: -15px;
 }
-html body header .header-content .header-email a:hover {
+html body .header-main .header-content .header-email a:hover {
   color: white;
 }
-html body header .header-content .header-email a.info-business {
+html body .header-main .header-content .header-email a.info-business {
   border: 1px solid black;
   margin-top: -120px !important;
   float: none;
   margin-left: -70px;
   text-align: center;
 }
-html body header .header-content .header-number {
+html body .header-main .header-content .header-number {
   float: left;
   height: 100%;
   min-width: 10.78431372%;
   /*110px*/
   /*1020px*/
 }
-html body header .header-content .header-number a {
+html body .header-main .header-content .header-number a {
   display: block;
   margin-top: 11px;
   text-decoration: none;
   font-size: 14px;
   color: #efecec;
 }
-html body header .header-content .header-number a img {
+html body .header-main .header-content .header-number a img {
   float: left;
   margin-right: 5px;
   margin-left: 0;
-  margin-top: 0px;
+  margin-top: 0;
 }
-html body header .header-content .header-number a span {
+html body .header-main .header-content .header-number a span {
   float: left;
   margin-right: 1px;
 }
-html body header .header-content .social-list {
+html body .header-main .header-content .social-list {
   height: 100%;
   float: right;
   /* social */
   /* END social */
 }
-html body header .header-content .social-list .social {
+html body .header-main .header-content .social-list .social {
   margin-top: 6px;
 }
-html body header .header-content .social-list .social li {
+html body .header-main .header-content .social-list .social li {
   list-style-type: none;
   float: left;
   margin-left: 20px;
 }
-html body header .header-content .social-list .social li a i {
+html body .header-main .header-content .social-list .social li a i {
   color: #efecec;
   font-size: 18px;
 }
-html body header .header-content .social-list .social li a i:hover {
+html body .header-main .header-content .social-list .social li a i:hover {
   color: white;
 }
 html body .nav-toggle {
   display: none;
   position: fixed;
-  z-index: 1000;
-  top: 45px;
+  z-index: 10;
+  top: 25px;
   right: 20px;
   width: 18px;
   height: 30px;
@@ -198,6 +198,11 @@ html body .nav-toggle {
   font-size: 21px;
   cursor: pointer;
   transition: color 0.3s;
+}
+html body .nav-toggle-fixed {
+  top: 0;
+  transition-property: top;
+  transition-duration: 0.3s;
 }
 html body .nav-toggle span:after,
 html body .nav-toggle span:before {
@@ -223,20 +228,16 @@ html body .nav-toggle span:before {
   backface-visibility: hidden;
   border-radius: 2px;
 }
-html body .nav-toggle-down {
-  background-color: #6039a8;
-}
-html body .nav-toggle-down ul li {
-  display: block;
-  float: right;
-}
 html body .top-nav {
+  display: block;
   height: 35px;
   width: 100%;
   position: absolute;
   top: 35px;
-  z-index: 5;
-  opacity: 0.8;
+  z-index: 15;
+  opacity: 1;
+  /* close-nav */
+  /* END close-nav */
 }
 html body .top-nav .navigation-content {
   width: 100%;
@@ -259,12 +260,35 @@ html body .top-nav .navigation-content .navigation li {
   margin-left: 40px;
 }
 html body .top-nav .navigation-content .navigation li a {
+  margin-top: 10px;
   text-transform: uppercase;
   text-decoration: none;
   color: white;
 }
 html body .top-nav .navigation-content .navigation li:last-child {
   margin-right: 15px;
+}
+html body .top-nav .close-nav {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+  color: #fff;
+  background-color: #2574A9;
+  height: 40px;
+  width: 40px;
+  border: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+html body .top-nav .close-nav:before {
+  font-family: Arial;
+  color: rgba(255, 255, 255, 0.9);
+  content: "x";
+  font-size: 30px;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.5);
+  outline: none;
 }
 html body .fixed {
   position: fixed;
