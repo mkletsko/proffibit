@@ -34,8 +34,13 @@ html body {
   /* END footer */
 }
 html body h2 {
-  font-size: 34px;
+  margin-top: 8%;
+  font-size: 0px;
   color: #212222;
+}
+html body h2.animate-two {
+  font-size: 34px;
+  transition: font-size 1s;
 }
 html body h4 {
   font-size: 24px;
@@ -43,9 +48,13 @@ html body h4 {
   font-weight: lighter;
 }
 html body h6 {
-  font-size: 18px;
+  font-size: 0px;
   color: #212222;
   font-weight: lighter;
+}
+html body h6.animate-six {
+  font-size: 18px;
+  transition: font-size 1s;
 }
 html body .return-up {
   display: block;
@@ -60,7 +69,7 @@ html body .return-up {
   line-height: 54px;
   border-radius: 50%;
   z-index: 100;
-  outline: none!important;
+  outline: none !important;
   transition: 0.5s linear;
   color: #fff !important;
   cursor: pointer;
@@ -82,7 +91,7 @@ html body .return-up:hover {
 }
 html body .header-main {
   width: 100%;
-  background-color: #9ea2a2;
+  background-color: #919ea6;
   position: absolute;
   top: 0;
   z-index: 5;
@@ -283,7 +292,7 @@ html body .top-nav .close-nav {
   cursor: pointer;
 }
 html body .top-nav .close-nav:before {
-  font-family: Arial;
+  font-family: 'Arial', sans-serif;
   color: rgba(255, 255, 255, 0.9);
   content: "x";
   font-size: 30px;
@@ -305,26 +314,21 @@ html body #slider-wrap {
   height: 100%;
   margin: 0 auto;
 }
-html body #slider {
+html body #slider-wrap #slider {
   height: 100%;
   width: 100%;
   overflow: hidden;
   position: relative;
 }
-html body #slider .slide {
+html body #slider-wrap #slider .slide {
   height: 100%;
   width: 100%;
   overflow: hidden;
   background-size: cover;
   background-position: 50% 50%;
 }
-html body #slider .slide p {
-  /*
-          width: 20%;
-          margin: auto;
-          position: absolute;
-          top: 50%; left: 50%;
-          transform: translate(-50%,-50%);*/
+html body #slider-wrap #slider .slide .slider-title {
+  text-align: center;
   visibility: visible;
   z-index: 5;
   text-transform: uppercase;
@@ -337,49 +341,29 @@ html body #slider .slide p {
   letter-spacing: 1px;
   line-height: 60px;
   white-space: normal;
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  min-width: 580px;
-  max-width: 580px;
-  border-color: #000000;
   transition: none;
-  border-width: 0px;
-  padding: 0px;
-  min-height: 170px;
-  max-height: 170px;
-  text-align: center;
 }
-html body #slider .slide-1 {
+html body #slider-wrap #slider .slide-1 {
   background-image: url("../img/main13.jpg");
 }
-html body #slider .slide-1 p {
-  position: static;
-  margin: 240px auto;
-}
-html body #slider .slide-2 {
+html body #slider-wrap #slider .slide-2 {
   background-image: url("../img/main2.jpg");
 }
-html body #slider .slide-2 p {
-  margin-top: 240px;
-  left: 100px;
+html body #slider-wrap #slider .slide-2 p {
+  float: left;
+  margin-left: 10%;
 }
-html body #slider .slide-3 {
+html body #slider-wrap #slider .slide-3 {
   background-image: url("../img/main12.jpg");
 }
-html body #slider .slide-3 p {
-  padding: 0;
-  display: block;
-  width: 50px !important;
-  margin-top: 240px;
-  right: 80px;
-  top: 40px;
-  max-height: 470px;
+html body #slider-wrap #slider .slide-3 p {
+  float: right;
+  margin-right: 10%;
 }
-html body .sli-links {
+html body #slider-wrap .sli-links {
   text-align: center;
 }
-html body .sli-links .control-slide {
+html body #slider-wrap .sli-links .control-slide {
   display: none;
   height: 16px;
   margin: 2px;
@@ -387,14 +371,14 @@ html body .sli-links .control-slide {
   text-indent: -9999px;
   width: 16px;
 }
-html body .sli-links .control-slide:hover {
+html body #slider-wrap .sli-links .control-slide:hover {
   background-position: center center;
   cursor: pointer;
 }
-html body .sli-links .control-slide.active {
+html body #slider-wrap .sli-links .control-slide.active {
   background-position: center top;
 }
-html body #prewbutton {
+html body #slider-wrap #prewbutton {
   cursor: pointer;
   background: #000;
   background: rgba(0, 0, 0, 0.15);
@@ -407,13 +391,13 @@ html body #prewbutton {
   display: block;
   z-index: 6;
 }
-html body #prewbutton:hover {
+html body #slider-wrap #prewbutton:hover {
   opacity: 1;
   background-color: white;
   background-image: url("../img/shevron-left-gray.png");
   transition: 0.3s;
 }
-html body #nextbutton {
+html body #slider-wrap #nextbutton {
   cursor: pointer;
   background: #000;
   background: rgba(0, 0, 0, 0.15);
@@ -427,7 +411,7 @@ html body #nextbutton {
   display: block;
   z-index: 6;
 }
-html body #nextbutton:hover {
+html body #slider-wrap #nextbutton:hover {
   opacity: 1;
   background-color: white;
   background-image: url("../img/shevron-right-gray.png");
@@ -437,6 +421,7 @@ html body .development {
   width: 100%;
   background-color: #41baae;
   float: left;
+  padding-bottom: 5%;
   /* development-content */
   /* END development-content */
 }
@@ -450,9 +435,6 @@ html body .development .development-content {
   /* development-services */
   /* END development-services */
 }
-html body .development .development-content h2 {
-  margin-top: 8%;
-}
 html body .development .development-content .development-services {
   width: 100%;
   overflow: hidden;
@@ -461,14 +443,18 @@ html body .development .development-content .development-services {
 html body .development .development-content .development-services .devices {
   float: left;
   width: 45%;
+  position: relative;
+  left: -100%;
 }
 html body .development .development-content .development-services .devices img {
-  width: 100%;
+  max-width: 100%;
 }
 html body .development .development-content .development-services .dev-services {
+  position: relative;
   width: 50%;
   height: 100%;
   float: right;
+  right: -100%;
   text-align: left;
   overflow: hidden;
 }
@@ -482,16 +468,18 @@ html body .development .development-content .development-services .dev-services 
   margin-right: 40px;
 }
 html body .development .development-content .development-services .dev-services .service-dev h4 {
-  margin-top: 0;
+  padding: 0;
+  margin-top: 15px;
 }
-html body .development .development-content .development-services .dev-services .service-dev h6 {
-  margin-top: 0;
+html body .development .development-content .development-services .dev-services .service-dev p {
+  margin-top: -20px;
   padding: 0;
 }
 html body .business-development {
   width: 100%;
   background-color: #f2f2f2;
   float: left;
+  padding-bottom: 5%;
   /* business-development-content */
   /* END business-development-content */
 }
@@ -513,54 +501,56 @@ html body .business-development .business-development-content .business-developm
   overflow: hidden;
   margin-top: 8%;
 }
-html body .business-development .business-development-content .business-development-services .devices {
+html body .business-development .business-development-content .business-development-services .devices-businnes {
+  position: relative;
   float: right;
   width: 45%;
+  right: -100%;
 }
-html body .business-development .business-development-content .business-development-services .devices img {
+html body .business-development .business-development-content .business-development-services .devices-businnes img {
   width: 100%;
 }
-html body .business-development .business-development-content .business-development-services .dev-services {
+html body .business-development .business-development-content .business-development-services .dev-services-businnes {
   width: 50%;
   height: 100%;
   float: left;
   text-align: left;
   overflow: hidden;
+  position: relative;
+  left: -100%;
 }
-html body .business-development .business-development-content .business-development-services .dev-services .service-dev {
+html body .business-development .business-development-content .business-development-services .dev-services-businnes .service-dev {
   margin-bottom: 10px;
   padding: 0;
   overflow: hidden;
 }
-html body .business-development .business-development-content .business-development-services .dev-services .service-dev img {
+html body .business-development .business-development-content .business-development-services .dev-services-businnes .service-dev img {
   float: left;
   margin-right: 40px;
 }
-html body .business-development .business-development-content .business-development-services .dev-services .service-dev h4 {
-  margin-top: 0;
+html body .business-development .business-development-content .business-development-services .dev-services-businnes .service-dev h4 {
+  padding: 0;
+  margin-top: 15px;
 }
-html body .business-development .business-development-content .business-development-services .dev-services .service-dev h6 {
-  margin-top: 0;
+html body .business-development .business-development-content .business-development-services .dev-services-businnes .service-dev p {
+  margin-top: -20px;
   padding: 0;
 }
 html body .projects {
   width: 100%;
-  background-color: ##7049ba;
-  background-image: url("../img/shutterstock.jpg");
-  background-repeat: no-repeat;
+  background: #7049ba url("../img/shutterstock.jpg") no-repeat;
   background-size: cover;
   float: left;
+  padding-bottom: 5%;
   /* projects-content */
   /* END projects-content */
 }
 html body .projects .projects-content {
   width: 95%;
   max-width: 1200px;
-  padding: 0;
   margin: 0 auto;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  padding-bottom: 8%;
   /* our-projects */
   /* END our-projects */
 }
@@ -583,6 +573,10 @@ html body .projects .projects-content .our-projects {
 }
 html body .projects .projects-content .our-projects .item-project {
   width: 33.1%;
+  position: relative;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: all 0.3s ease-in-out;
 }
 html body .projects .projects-content .our-projects .item-project a {
   display: block;
@@ -612,10 +606,8 @@ html body .projects .projects-content .our-projects .item-project a .mask h3 {
 }
 html body .projects .projects-content .our-projects .item-project a .mask p {
   margin: 5px auto;
-  padding: 0;
   width: 90%;
   font-size: 13px;
-  line-height: 18px;
 }
 html body .projects .projects-content .our-projects .item-project a .mask h3,
 html body .projects .projects-content .our-projects .item-project a .mask p {
@@ -644,6 +636,10 @@ html body .projects .projects-content .our-projects .item-project:nth-child(3) .
 html body .projects .projects-content .our-projects .item-project:nth-child(3) .mask:hover {
   background-color: white;
 }
+html body .projects .projects-content .our-projects .item-project.is-showing {
+  opacity: 1;
+  transform: translateX(0px);
+}
 html body .projects .projects-content .two-our-projects .item-project:nth-child(1) .mask {
   color: white;
 }
@@ -666,6 +662,7 @@ html body .assurance {
   width: 100%;
   background-color: #4c8eb4;
   float: left;
+  padding-bottom: 5%;
   /* assurance-content */
   /* END assurance-content */
 }
@@ -690,14 +687,18 @@ html body .assurance .assurance-content .assurance-services {
 html body .assurance .assurance-content .assurance-services .devices {
   float: left;
   width: 45%;
+  position: relative;
+  left: -100%;
 }
 html body .assurance .assurance-content .assurance-services .devices img {
   width: 100%;
 }
 html body .assurance .assurance-content .assurance-services .dev-services {
+  position: relative;
   width: 50%;
   height: 100%;
   float: right;
+  right: -100%;
   text-align: left;
   overflow: hidden;
 }
@@ -719,7 +720,6 @@ html body .assurance .assurance-content .assurance-services .dev-services .servi
 }
 html body .proffibit-provides {
   width: 100%;
-  height: 100%;
   overflow: hidden;
   background-color: white;
   float: left;
@@ -727,14 +727,16 @@ html body .proffibit-provides {
 html body .proffibit-provides .proffibit-provides-content {
   width: 50%;
   float: left;
-  font-size: 34px;
+  font-size: 28px;
   text-align: center;
   color: #7049ba;
-  line-height: 44px;
+  line-height: 38px;
+  position: relative;
+  left: -100%;
 }
 html body .proffibit-provides .proffibit-provides-content p {
-  margin: 20% auto;
-  width: 80%;
+  margin: 20% auto 0;
+  width: 95%;
   font-weight: normal;
   font-family: "Roboto", sans-serif;
 }
@@ -742,16 +744,20 @@ html body .proffibit-provides .proffibit-provides-content-2 {
   width: 50%;
   float: left;
   height: 100%;
-  background-image: url("../img/shutterstock2.jpg");
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  position: relative;
+  right: -100%;
+}
+html body .proffibit-provides .proffibit-provides-content-2 img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
 }
 html body .contacts {
   width: 100%;
   background-color: #7049ba;
   float: left;
-  padding-bottom: 8%;
+  padding-bottom: 5%;
   /* contacts-content */
   /* END contacts-content */
 }

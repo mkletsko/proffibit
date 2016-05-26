@@ -7,11 +7,8 @@ var menuElem = document.getElementsByClassName('top-nav')[0];
 var toggleButton = document.getElementsByClassName('nav-toggle')[0];
 var menuSourceBottom = menuElem.getBoundingClientRect().bottom + window.pageYOffset;
 
-/* event scroll effects menu and toggle menu button*/
-window.onscroll = function(e) {
-
-    fixedTopMenu();
-    fixedTopToggleButton();
+/* event scroll effects menu and toggle menu button */
+window.onscroll = function() {
 
     function fixedTopMenu(){
         if (menuElem.classList.contains('fixed') && window.pageYOffset < menuSourceBottom && document.documentElement.clientWidth < 992) {
@@ -21,7 +18,7 @@ window.onscroll = function(e) {
         } else {
             menuElem.classList.remove('fixed');
         }
-    };
+    }
 
     function fixedTopToggleButton(){
         if (window.pageYOffset > 25) {
@@ -29,8 +26,52 @@ window.onscroll = function(e) {
         } else{
             toggleButton.classList.remove('nav-toggle-fixed');
         }
-    };
+    }
 
+
+    function animatePage(){
+
+        var i,
+            animateTitle = document.getElementsByClassName('animate-one');
+
+        for(i = animateTitle.length; i--;){
+
+            var coordAnimateTitle = animateTitle[i].getBoundingClientRect().top - 100,
+                positionTitle = document.documentElement.clientHeight - coordAnimateTitle;
+
+            if (positionTitle > coordAnimateTitle && animateTitle[i].tagName == 'H2'){
+                animateTitle[i].classList.add('animate-two');
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].tagName == 'H6'){
+                animateTitle[i].classList.add('animate-six');
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('dev-services')){
+                animateTitle[i].style.cssText = 'transition: right 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'right: 0';
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('devices')){
+                animateTitle[i].style.cssText = 'transition: left 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'left: 0';
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('dev-services-businnes')){
+                animateTitle[i].style.cssText = 'transition: left 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'left: 0';
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('devices-businnes')){
+                animateTitle[i].style.cssText = 'transition: right 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'right: 0';
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('proffibit-provides-content')){
+                animateTitle[i].style.cssText = 'transition: left 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'left: 0';
+            } else if (positionTitle > coordAnimateTitle && animateTitle[i].classList.contains('proffibit-provides-content-2')){
+                animateTitle[i].style.cssText = 'transition: right 1s cubic-bezier(0.0, 0.5, 0.5, 1.0);' +
+                    'right: 0';
+            }
+
+        }
+
+
+    }
+
+
+    fixedTopMenu();
+    fixedTopToggleButton();
+    animatePage();
 
 };
 /* END event scroll effects menu and toggle menu button*/
@@ -44,10 +85,10 @@ if (document.addEventListener){
     toggleButton.attachEvent('onclick', toggleClick);
 } else {
     toggleButton.onclick = toggleClick;
-};
+}
 
 function toggleClick(e){
-
+    'use scrict';
     if(menuElem.style.display == 'block'){
         menuElem.style.display = 'none';
     } else {
@@ -68,19 +109,23 @@ function toggleClick(e){
         e.returnValue = false;
     }
 
-};
+}
 /* END click toggle-menu display */
 
 /* close toggle-menu button */
-var closeNav = document.getElementsByClassName('close-nav')[0];
+function closeToggleMenu(){
+    var closeNav = document.getElementsByClassName('close-nav')[0];
 
-if (document.addEventListener){
-    closeNav.addEventListener('click', closeNavigation);
-} else if (document.attachEvent){
-    closeNav.attachEvent('onclick', closeNavigation);
-} else {
-    closeNav.onclick = closeNavigation;
-};
+    if (document.addEventListener){
+        closeNav.addEventListener('click', closeNavigation);
+    } else if (document.attachEvent){
+        closeNav.attachEvent('onclick', closeNavigation);
+    } else {
+        closeNav.onclick = closeNavigation;
+    }
+}
+closeToggleMenu();
+
 
 function closeNavigation(e){
 
@@ -104,11 +149,22 @@ function closeNavigation(e){
         e.returnValue = false;
     }
 
-};
+}
 /* END close toggle-menu button */
 
+/* title in slider to middle */
+function positionTitleSlider(){
+    var sliderBlock = document.getElementById('slider'),
+        titleSlider = document.getElementsByClassName('slider-title');
 
+    for(var i = 0; i < titleSlider.length; i++){
+        titleSlider[i].style.marginTop = Math.round(sliderBlock.clientHeight / 2 - titleSlider[i].offsetHeight) + 'px';
+    }
+}
+positionTitleSlider();
+/* END title in slider to middle */
 
+/*--------------------------------------------------------------------------------------------*/
 
 /*-- JQuery Part --*/
 $(document).ready(function(e) {
@@ -117,8 +173,6 @@ $(document).ready(function(e) {
     var hwSlideSpeed = 700;
     var hwTimeOut = 3000;
     var hwNeedLinks = true;
-
-
 
     /* Slider script */
     $('.slide').css(
@@ -191,6 +245,19 @@ $(document).ready(function(e) {
             } else{
                 $(".return-up").fadeOut();
             }
+
+            /* show project gallery*/
+            var wScroll = $(this).scrollTop();
+            if( wScroll > $('.projects-content').offset().top - ( $(window).height() / 2) ){
+                $('.item-project').each(function(i){
+                    setTimeout(function(){
+                        $('.item-project').eq(i).addClass('is-showing');
+                    }, 250 * (i + 1));
+
+                });
+            }
+            /* END show project gallery*/
+
         });
 
         $(".return-up").click(function (){
@@ -201,6 +268,9 @@ $(document).ready(function(e) {
         });
     });
     /* END script for return button return-up */
+
+
+
 
 });
 
